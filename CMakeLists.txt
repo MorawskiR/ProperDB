@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 project(student-database)
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/database.cpp src/student.cpp) 
 
 
 # GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
@@ -18,7 +18,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(${PROJECT_NAME}-ut src/tests.cpp)
+add_executable(${PROJECT_NAME}-ut src/tests.cpp src/database.cpp src/student.cpp)
 
 target_link_libraries(${PROJECT_NAME}-ut gtest_main)
 
